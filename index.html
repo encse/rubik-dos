@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link href="app.css" type="text/css" rel="stylesheet" media="all" />
+  <title>Encse's NES emulator</title>
+  <script src="js-dos.js"></script>
+</head>
+<body>
+  <header>
+    <img src="rubik.png" width="500px" />
+  </header>
+  <main>
+    <article>
+      <canvas id="jsdos"></canvas>
+      <pre>
+--- FILE: Dokumentáció a Rubik3.exe-hez
+--- BOF ---
+HI!
+
+  Nos hát végre eljutottam addig a pontig, hogy már csak valami információt
+kell  írnom  agyatlanságom  eme  megnyilvánulásához. Ugyan foggalmam sincs, 
+hogy  miről  fog szólni a dokumentáció. Tegnap este azon gondolkodtam, hogy 
+egy  bizonyos  lány  iszonyatosan  a bögyömbe van, úgyhogy...
+
+  Na jó, de akkor  viszont mi marad? Egy  jótanács: nálam ugyan fut Win '95 
+alatt is a progi  de  pl. a Bólyai koleszban már nem, tehát ne csodálkozzon 
+senki,  aki azt  a ...-t használja,  ha  lefagy tőle a gépe. Screen shot-ot 
+pedig  még nekem  se sikerült használnom vele, mert valami x. védelmi hibát 
+okozott, tehát azt különösen nem ajánlom.
+
+  Hogy mit is tud a program? Elméletileg nagyon keveset, két jól megtermett
+perspektívikusan  ábrázolt, megvilágított Rubik-kockát hajtogat össze-visz-
+sza.  Ez a két kocka tulajdonképpen ugyanannak a kockának két különböző né-
+zete (hogy egyszerre lehessen látni mind a hat oldalát).
+
+  A  "kirakási algoritmus" az egyetlen általam ismert algoritmus segítségé-
+vel  született  (gyk. soronként felülről lefelé). Az első sornál ez egy (i-
+szonytatóan nagyképűen) optimalizálásnak nevezett módon le is egyszerűsítő-
+dik, a többinél azért nem, mert akkor még én se látnám, hogy mikor mit csi-
+nál.  (Megj.:  a "teljesen optimalizált" változat megtekinthető a -fo opció 
+használatával.)  Az  optimalizálás lényege az, hogy a felesleges oda-vissza 
+forgatásokat,  az  ugyanannak  az  oldalnak háromszori ugyanabba az irányba 
+történő  elfordítását  és az egész kocka elforgatását megfelelően módosítsa 
+(az  elsőt  és  az utolsó elhagyja, a másodikat felcseréli egy ellenkező i-
+rányba  fordítással). Erre azért van szükség, mert az algoritmus kb. 35%-ra 
+zsugorodott  azáltal,  hogy  a  legtöbb  esetet csak a szemben levő oldalra 
+vizsgáltam, és ha mondjuk a jobb oldalon kellett ugyanilyen vizsgálatot vé-
+gezni,  egyszerűen csak elfordítottam a kockát a függőleges tengely mentén. 
+Továbbá  az egyes  eseteket  csak nagyon körölményesen lehetett egymás után
+illeszteni, így pl. az első sornál irtó unalmas oldal oda-vissza forgatások 
+voltak teljesen feleslegesen. 
+
+  Két  olyan állapot van, ahol a kockát a kurzorvezérlő billentyűkkel lehet
+forgatni,  az összekeverés és a kirakás után. A z tengelyen (amelyik normá-
+lis  a  képernyő síkjára) úgy lehet forgatni, hogy a Ctrl-re is rá kell ke-
+nyerelni,  aztán  <-  -> (ez a bal oldali kockára vonatozik, megjegyzem azt 
+célszerű  nézni  miközben forgatjuk, mert a másikon igen természetellenesen
+jönnek ki az irányok).
+
+  Még  egy  iszonyú bonyolult billentyűkombinációt kell megjegyezni a szak-
+szerű  működtetéshez  (ugyebár  az ESC-et leszámítva): az összekavarás után
+(meg a kézi forgatás után) egy Entert kell taccsolni.
+  Ráadás: a világítás kikapcsolható a -loff opcióval.
+
+  A  program rövid története: tavaly tavasszal írtam az első verziót kb egy
+hét  leforgása  alatt,  ennek egyenesági következménye egy történelem egyes 
+volt, ami aztán elég sok kellemetlenséget okozott a félév további részében,
+továbbá egy matek négyes is, mégpediglen koordináta-geometriából. (Ez utób-
+biban  csak az a bosszantó, hogy a Tóth Szilvi soha nem fogja megírni ezt a
+programot, pedig neki 5-ös lett az a doga.) Tehát az 1.0 verzióban egy koc-
+ka volt, naggyon rosszul nézett ki, sokkal lassabban forgott, nem volt meg-
+világítva,  és kisebb volt a képernyő felbontás is, meg a színmélység (vagy
+mi  a f.sz)  is. Ezen kívül nem volt benne optimalizálás, és sokszor jutott 
+végtelen  ciklusba.  Végül még így is sokkal nagyobb volt, és összességében
+nagyon bután, és módosíthatatlanul volt megírva.
+
+  Hogy  miért  nem  teszem ide a forráskódot? Mert aki ezt megértené, annak 
+valószínűleg nem tartana túl sokáig valamivel jobbra megcsinálni, tehát ne-
+ki nem sok értelme van iderakni. Aki meg nem látja át annak semmi kedvem ó-
+rákig  azt fejtegetni, hogy mit miért csináltam. Viszont ha valaki megmond-
+ja,  hogy  mi az a négy dolog, amit lusta voltam belerakni az algoritmusba, 
+annak elküldöm, és beleteheti mindenféle jogdíj befizetése nélkül. 
+  
+  Már  csak  a  mentegetőzés van hátra az esetleges hibákért. Aki netán fel 
+van  háborodva  ezek  miatt  annak  ajánlom,  hogy  tömörítse  ki az .exe-t 
+(PKLITE),  aztán  egy  editorral nézze meg a végét, ahol a stringkonstansok 
+vannak.  Ott valószínűleg meg fogja találni azt az oldalnyi y6+x1-z2+...-t, 
+amit elszúrtam valahol. Sajnálom. 
+
+  Bár  remélem  nem túl sok hiba van benne, egyik délelőtt szépen egyesével 
+végignéztem az egészet. 
+
+  Ha esetleg valaki azt tapasztalná, hogy a program kilép mielőtt befejezte
+volna  a kirakást, az reményeim szerint egy végtelen ciklusba keveredés mi-
+att lesz (vagy csak a mélyen tisztelt felhasználó túl hamar tenyerelt rá az
+ESC  gombra?)  Bár  ezt  majd csak holnap - pontosabban ma délelőtt - fogom
+belerakni,  remélem sikerül. Az eljárás azon a hihetetlenül primitív észre-
+vételen  alapul,  hogy  a kocka kirakásához szükséges forgatásoknak van egy 
+maximuma,  amennyiből minden állapotot ki lehet rakni. Ezt jó durván felül-
+becslem,  aztán  már csak azt kell figyelni, hogy mikor lépte túl a progi a 
+határt.  A kilépés egy különösen informatív hibaüzenettel lesz indokolva, a
+végén található számot nekem elküldők között sok értéktelen semmiséget sor-
+solok ki.
+
+  Picit álmos  vagyok,  de  még maghallgatom a Cserháti Zsuzsit a rádióban,
+addig is a világ egyik legritkábban látogatott szeglete (általam is):
+
+  NCS@valerie.inf.elte.hu. 
+
+NA asszem kábé ennyit éremes elmondani, a többi már nagyon száraz lenne...
+BYE.
+
+U.I.: 
+  Üdvözlet Berki Lukácsnak, Balázs Tibornak, Somogyi Eszternek, Hekli Szabi-
+  nának, Tisza Gergőnek, Megyesi Gergőnek, meg az összes olyan ismerősömnek,
+  aki szóba is áll velem.
+
+  NCS
+                                                                  -- EOF --
+    </pre>
+
+      <p>Te jó ég... Ki lehetett az a lány? És Cserháti Zsuzsa? Most komoly?
+      </p>
+      <iframe style="margin: 0 auto; display: block;" width="560" height="450"
+        src="https://www.youtube.com/embed/_Z2GRIUpCf0" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+
+
+      <p>Ez a kis alkamazás még DOS alatt futott és Borland C-ben íródott. (Lehet,
+        hogy volt már benne egy kis C++ is, de ha igen akkor csak mutatóban.)
+        Még a gimnáziumban kezdtem rajta dolgozni, és az egyetem alatt ahol csak lehetett minden
+        tantárgyból ezt használtam beadandónak.
+      </p>
+      <p>Hatalmas királyságnak számított, hogy 640x480-as grafikus módot használtam hozzá
+        és mindent kis pixel színét kézzel számolgattam ki. Akkoriban nem volt még
+        DirectX, és lemezeken másolgatott text fájlokon, meg magazinokbók kifénymásolt
+        papírfecniken terjedtek az információk.
+      </p>
+      <p><img src="vga.jpg" style="width:60%; display: block; margin: 0 auto;" />
+      </p>
+      <p>Na, tudtam én hogy nem szabad kidobni semmit... Meg is találtam a szentírást az első C könyvembe betűzve.
+        Szóval ehhez hasonló, Commodore világból kimásolt dolgokra tessenek gondolni.
+      </p>
+
+      <p>Hatalmas poén hogy húsz évvel később még sikerült lefordítani, sőt DosBoxban el is indul, ami
+        alighanem webassemblyben fut a böngészőben... Egy pár réteg rárakódott az évek alatt...</p>
+
+   
+      <script>
+        Dos(document.getElementById("jsdos")).ready((fs, main) => {
+          fs.extract("rubik.zip")
+            .then(() => main(["-c", "rubik\\rubik.exe"]));
+        });
+      </script>
+
+    </article>
+  </main>
+  <footer>
+  <p>2021 - <a href="https://csokavar.hu">csokavar.hu</a> -
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMGMtNi42MjYgMC0xMiA1LjM3My0xMiAxMiAwIDUuMzAyIDMuNDM4IDkuOCA4LjIwNyAxMS4zODcuNTk5LjExMS43OTMtLjI2MS43OTMtLjU3N3YtMi4yMzRjLTMuMzM4LjcyNi00LjAzMy0xLjQxNi00LjAzMy0xLjQxNi0uNTQ2LTEuMzg3LTEuMzMzLTEuNzU2LTEuMzMzLTEuNzU2LTEuMDg5LS43NDUuMDgzLS43MjkuMDgzLS43MjkgMS4yMDUuMDg0IDEuODM5IDEuMjM3IDEuODM5IDEuMjM3IDEuMDcgMS44MzQgMi44MDcgMS4zMDQgMy40OTIuOTk3LjEwNy0uNzc1LjQxOC0xLjMwNS43NjItMS42MDQtMi42NjUtLjMwNS01LjQ2Ny0xLjMzNC01LjQ2Ny01LjkzMSAwLTEuMzExLjQ2OS0yLjM4MSAxLjIzNi0zLjIyMS0uMTI0LS4zMDMtLjUzNS0xLjUyNC4xMTctMy4xNzYgMCAwIDEuMDA4LS4zMjIgMy4zMDEgMS4yMy45NTctLjI2NiAxLjk4My0uMzk5IDMuMDAzLS40MDQgMS4wMi4wMDUgMi4wNDcuMTM4IDMuMDA2LjQwNCAyLjI5MS0xLjU1MiAzLjI5Ny0xLjIzIDMuMjk3LTEuMjMuNjUzIDEuNjUzLjI0MiAyLjg3NC4xMTggMy4xNzYuNzcuODQgMS4yMzUgMS45MTEgMS4yMzUgMy4yMjEgMCA0LjYwOS0yLjgwNyA1LjYyNC01LjQ3OSA1LjkyMS40My4zNzIuODIzIDEuMTAyLjgyMyAyLjIyMnYzLjI5M2MwIC4zMTkuMTkyLjY5NC44MDEuNTc2IDQuNzY1LTEuNTg5IDguMTk5LTYuMDg2IDguMTk5LTExLjM4NiAwLTYuNjI3LTUuMzczLTEyLTEyLTEyeiIvPjwvc3ZnPg==">
+    <a href="https://github.com/encse/rubik-dos">rubik-dos</a></p>
+  </footer>
+ 
+</body>
+
+</html>
