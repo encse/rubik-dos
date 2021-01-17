@@ -12,8 +12,8 @@ I use a mac, so scripts work on the mac only... You need to have node and npm in
 If you want to play with the source code, put [dosbox.app](https://www.dosbox.com/) in the root of the repository.
 
 ```
-    npm run build:  creates a rubik.zip file in the public folder.
-    npm run dosbox: opens dosbox with Borland C and Norton Commander installed.
+- npm run build:     creates a rubik.zip file in the public folder.
+- npm run dosbox:    opens dosbox with Borland C and Norton Commander installed.
 ```
 
 To build the app:
