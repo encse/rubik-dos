@@ -2,7 +2,7 @@ The Rubik's cube was one of my favorite toys as a child, and writing an animated
 
 ![screenshot](screenshot.png)
 
-The code was written in Borland C++ (mostly C) using an old 5x86 machine. I found the archives of this project in 2021 and made it available in Dosbox. 
+The code was written in Borland C++ (mostly C) using an old 5x86 machine. I found the archives of this project in 2021 and made it available in DOSBox. 
 
 Check it out at https://csokavar.hu/projects/rubik
 
@@ -13,12 +13,12 @@ If you want to play with the source code, put [dosbox.app](https://www.dosbox.co
 
 ```
 - npm run build:     creates a rubik.zip file in the public folder.
-- npm run dosbox:    opens Dosbox with Borland C++ and Norton Commander installed.
+- npm run dosbox:    opens DOSBox with Borland C++ and Norton Commander installed.
 ```
 
 To build rubik.exe:
 ```
-- start Dosbox
+- start DOSBox
 - start the IDE with "BC" in C:\
 - open C:\RUBIK\RUBIK.PRJ
 - build with F9
