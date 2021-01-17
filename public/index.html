@@ -4,7 +4,6 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="app.css" type="text/css" rel="stylesheet" media="all" />
-  <title>Rubik</title>
   <script src="dosbox/js-dos.js"></script>
 </head>
 <body>
@@ -70,6 +69,7 @@
               }).join('')
               document.getElementById("doc").innerText = txt;
               main(["-c", "rubik\\bin\\rubik.exe"]);
+              document.title = "Rubik";
             });
         });
       </script>
