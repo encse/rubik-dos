@@ -32,6 +32,7 @@ junior's desperate effort to create something moderately complicated.
 
 Hey, all of us had to start somewhere...
 
-**Copyright** I know that I shouldn't... but the whole devenv is checked in
-with the source code. Afterall: how on Earth am I supposed to find the Borland C++ compiler 10 years from now,
- and the same for Norton Commander...
+**Copyright**: I know that I shouldn't... but the whole devenv is checked in
+with the source code. How on Earth am I supposed to find the Borland C++ 
+compiler 10 years from now afterall? And the same goes for Norton Commander...
+That's how things were working in 1998, let's just conserve it for the future.
