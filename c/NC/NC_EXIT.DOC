@@ -1,0 +1,76 @@
+NC_EXIT.COM          Program and documentation by Tony McNamara, Symantec
+
+Purpose:
+========
+    Unloads the Norton Commander without the use of a TSR program.
+    Optionally stuffs up to an 11 character command for processing after.
+
+Version 2.0, 1 February 91
+    Added command-line string parameter support.
+
+Syntax:
+=======
+    NC_EXIT
+    or
+    NC_EXIT <string> 
+    where <string> is up to 11 characters to be entered, as if typed at the
+    keyboard, after The Norton Commander has been exited.  
+
+Compatibility:
+==============
+    Unloads only the Norton Commander.  
+    Windows compatible.
+    Designed to be highly compatible.
+    May be rendered ineffective by some keyboard accelerators.
+
+Usage:
+======
+    Call from a batch file or a sequence of commands in a user menu.
+    No parameters are required.  If given, an ASCII string is used.
+    Due to the method, NC_Exit should be the last command called by the user 
+    menu or batch file.  Otherwise, the keyboard input may be accepted or reset
+    by another program.
+    IMPORTANT: Both NC_Exit and the batch file or executable called by 
+               <string> should be in your PATH.  Otherwise, these won't
+               work.  You probably should put them in your Norton Commander
+               directory, which should already be in your PATH.
+    
+EXAMPLES:
+=========
+        To run Windows from outside of the Commander, you could set
+	the user menu to:
+        W:      MS Windows
+                nc_exit win
+    (assuming WIN.COM was in your path).  Then, whenever you chose Windows
+    at your user menu, you would leave the Commander and run MS Windows without
+    it.
+
+        
+    To change the PATH in NC and have it stick (as opposed to merely staying
+    in effect for the duration of a batch file), you must exit NC, set the 
+    path, and restart NC.  This can now be automated by doing the following:
+
+        1) Create a two line batch file, consisting of:
+                PATH=<the path you wish set>
+                NC
+
+        2) Set your User Menu, Extension Files, or whatever batch file is
+           called by these to call NC_EXIT <batch file name>
+
+        For example, call the following "SETNC.BAT"
+                SET NORCMD=ON
+                NC
+        and add the following to your User Menu:
+                T:      Test NC_Exit
+                        NC_EXIT SETNC
+        Then select "T" from your user menu.  You should wind right back
+        in the Commander, but when you type "SET", you should see the
+        new environmental variable "NORCMD".  
+
+
+If you have any questions or problems, please ask in the NORUTL forum
+on CompuServe.  
+
+        
+        
+

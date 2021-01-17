@@ -1,0 +1,199 @@
+The Norton Commander 5.5
+-------------------------
+Welcome to the new Norton Commander 5.5. This guide provides you with:
+
+	* An overview of what's new with Norton Commander
+
+	* A list of enhanced features
+
+What's New in Norton Commander 5.5
+-----------------------------------
+
+* Drag & Drop
+
+Drag & Drop support now makes it even easier to manipulate your files between
+panels. You can drag as single file, or groups of files and directories.
+
+Drag from one panel to another to copy files, or hold down the ALT key to move
+files.
+
+You can even drag files/directories to the button bar at the bottom of the
+screen to invoked a file operation.
+
+* Filters
+
+Norton Commander 5.5 features advanced file selection techniques. File
+selection is now based on Operation Filters that affect all file operations
+like copy, move, synchronise, delete and compress.
+
+Operation Filters allow the users to specify file selection based on file
+name, date and time, file size and even file attributes. This advanced
+selection criteria is traditionally confined to File Finder utilities,
+however Norton Commander integrates this feature at the heart of
+the Commander kernel making it the best all-round file manager available
+today.
+
+* Synchronise Directories
+
+The Norton Commander makes it easy to synchronise files/directories between
+two or more machines or network volumes. This feature will be particularly
+useful for portable computer users that have to keep copies of Filters.
+
+* Compressed File Viewing
+
+Now you can view the contents of any file contained within a compressed file.
+Simply open the compressed file, select the file and press the View button.
+
+* Disk Utilities
+
+The Norton Commander adds some useful Disk utilities to extend the
+functionality of the File Manager so that common day-to-day DOS activities
+can be carried out from within the Commander environment.
+
+	<> Format Diskette:
+		Format disks easily without worrying about how to use the DOS
+		format command.
+
+	<> Copy Diskette:
+		Create a disk image and make multiple copies of a disk. Simpler
+		and faster than the DOS copy command.
+
+	<> Label Diskette:
+		Now add a label to any DOS drive using this simple and useful
+		utility.
+
+* Network Utilities
+
+The Norton Commander now lets your perform a variety of operations across a LAN,
+using a simple menu system and a familiar interface. You can send messages,
+view server volume information, attach to or detach from servers, and map or
+unmap drives.
+
+The utilities are designed for Novell networks supporting Netware 3.x and
+Netware 4.x.
+
+	<> Send Message:
+		Send Messages and review details of users or groups of Users
+		on the LAN.
+
+	<> Attach/Detach Server:
+		Attach to or Detach from a list of Servers easily with out
+		needing complex syntax.
+
+	<> Drive Mappings:
+		Map drives to servers with the click of a button.
+
+	<> Server Information:
+		Provides information regarding all networks on a LAN.
+
+* File Splitter
+
+The Norton Commander 5.5 features a file Split and Merge utility that allows
+large files be broken down into small ones. Essential if you file wont fit
+on one floppy disk. Split it up over a number of disks and remerge later
+onto another hard disk.
+
+* Disk Cleanup
+
+Clean you hard disk of unwanted files created by other programs such as
+readme, autosave and temporary files. Completely configurable to create your
+own file sets.
+
+* File Search
+
+The Norton Commander File Finder has been completely rewritten and designed
+to provide the following advanced and useful features.
+
+	<> Regular Expressions. You now have greater control in how you
+	   define your search criteria when looking for files. You can
+	   control what files are included and excluded during the search
+	   and locate specific text patterns in files.
+
+	<> File Find Panel. You can send the results of your search
+	   operation to a standard Commander File Panel. This is useful when
+	   you want to perform block operations on a group of files scattered
+	   around different directories on your hard disk.
+
+	<> Duplicate File Searching. You can now search for duplicate files on
+	   your hard disk.
+
+	<> Multiple Search locations. You can search multiple locations for
+	   your files. You can also use environment variables like %PATH% to
+	   guide your file search on your disks.
+
+	<> Commander Line Support. You can launch the Norton Commander to find
+	   essential files using command line switches. They offer the full
+	   flexibility of the menu driven program.
+
+What's enhanced in the Norton Commander 5.5 ?
+--------------------------------------------
+
+* File Attributes
+
+Now you can select multiple files and directories and set the attributes of
+the files using one simple step.
+
+Useful for marking all files in a nested directory structure as read-only.
+
+* Configuration Panel
+
+Configuration has been moved to one location, making it easier to configure
+screens, panels, screen savers, mouse and video characters.
+
+* System Information
+
+The Norton Commander System Information has been extended to display
+information about memory arrangement, hardware configuration, and CMOS Status.
+
+* File Printing
+
+You can now print the contents of files to a postscript printer.
+
+
+* Compression
+
+The Norton Commander 5.5 now compresses up to 40,000 files, using a variety of
+compression programs including ZIP, ARC, ARJ, PAK, LHARC and ZOO.
+
+* Delete Command
+
+An improved Delete command now lets you delete all files in a directory but
+keeps the directory structure intact. Great for developers archiving a
+development project who want to get rid of their MAP and LNK files.
+
+* Configuration
+
+The Configuration of Norton Commander 5.5 has been consolidated into a single, easy-to-use dialog box.
+Through this one interface users can configure the screen colours, confirmation options, compression
+options and printer options for all the Commander utilities.
+
+One new feature supported in the Norton Commander 5.5 is the ability to switch
+the character set into a semi-graphical one that displays check-boxes and
+radio buttons as they appear in Windows.
+
+* Terminal emulation Program
+
+The terminal emulation program has been modified to provide support for the
+newer, more modern UI of Norton Commander 5.5, with support also provided
+for Keyboard macros, INT-15, and NCSI. The product now also supports data
+connections at up to 115,200 bps, so users with fast modems can avail of the
+speed using this product. Access to CompuServe is improved with support for
+the CompuServe-B file transfer protocol.
+
+* Copy Command
+
+The Norton Commander Copy command has been modified
+
+	<> Copy newer files only : this can have a dramatic effect on the
+	   overall time to copy and synchronise directories from one machine
+	   to another. Use in conjunction with the new Synchronise directories
+	   command and you have the ideal File Manager for mobile computer
+	   users.
+
+	<> Check the destination disk space prior to starting a copy operation.
+
+* Screen Savers
+
+You can now choose from a selection of 20 text based and graphical screen
+savers.
+

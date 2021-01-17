@@ -1,0 +1,24 @@
+File Find, Norton Commander 5.5, Copyright 1998 by Symantec Corporation
+
+NCFF [locations] find_name [/F:"text" [/R] [/T]]
+                           [/C] [/S] [/D] [/M:{H|S|R|A|D|N}...]
+                           [/A:date[,time]] [/B:date[,time]]
+                           [/G:size[{K|M}]] [/L:size[{K|M}]]
+
+  locations       Path name to search for.
+  find_name       File name to search for.
+  /F              Optional text to find in files.
+  /R              Regular Expression.
+  /T              Search for text in the text files only.
+  /D              Find duplicates.
+  /C              Search current Directory
+  /S              Include files in subdirectories.
+  /M              Tests files with specified attributes:
+                  H  Hidden files          S  System files
+                  R  Read-only files       A  Files ready to archive
+                  D  Directories           N  None.
+  /A              Tests files with date after specified.
+  /B              Tests files with date before specified.
+  /G              Tests files with size greater than specified.
+  /L              Tests files with size less than specified.
+

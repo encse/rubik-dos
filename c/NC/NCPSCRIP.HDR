@@ -1,0 +1,601 @@
+%	================================================
+%	Create a dictionary, called PSDICT, to contain
+%	all the verbs and variables for this stuff.
+%	The dictionary is created, loaded with the verbs,
+%	and then pushed on the dictionary stack
+%	================================================
+
+/psdict 300 dict def
+
+psdict begin
+
+% --- declare all variables used in the dictionary
+
+/pagenum 1 def
+/linenum 1 def
+/str 1 string def
+/margintop 1 def
+/marginbottom 1 def
+/marginleft 1 def
+/marginright 1 def
+/charsize 1 def
+/tabsize 1 def
+/columns 1 def
+/numbering false def
+/orientation 1 def
+/pageject false def
+/header [1] def
+/footer [1] def
+/frameleft 1 def
+/frametop 1 def
+/framebottom 1 def
+/framevert 1 def
+/pageleft 1 def
+/pageright 1 def
+/pagetop 1 def
+/pagebottom 1 def
+/headerheight 1 def
+/footerheight 1 def
+/buf 1 string def
+/bi 1 def
+/hfrow 1 def
+/hfpos 1 def
+/currentframe 1 def
+
+% ============ Global 'Constants' ============
+
+/hfpoints 12 def							% point size for header/footer font
+/hffont /Times-Roman findfont hfpoints scalefont def
+
+% ============ Settings Commands ============
+
+% ------------ PSCS : Set Character Size
+/pscs {
+	/charsize exch def
+} bind def
+
+% ------------ PSMT : Set Margin Top
+/psmt {
+	/margintop exch 72 mul def
+} bind def
+
+% ------------ PSML : Set Margin Left
+/psml {
+	/marginleft exch 72 mul def
+} bind def
+
+% ------------ PSMR : Set Margin Right
+/psmr {
+	/marginright exch 72 mul def
+} bind def
+
+% ------------ PSMB : Set Margin Bottom
+/psmb {
+	/marginbottom exch 72 mul def
+} bind def
+
+% ------------ PSTS : Set Tab Size
+/psts {
+	/tabsize exch def
+} bind def
+
+% ------------ PSCO : Set Columns per page
+/psco {
+	/columns exch def
+	columns 1 lt {/columns 1 def} if
+} bind def
+
+% ------------ PSOR : Set Page Orientation
+/psor {
+	/orientation exch def
+} bind def
+
+% ------------ PSNL : Number Lines, non-zero=enable, zero=disable
+/psnl {
+	/numbering exch 0 ne def
+} bind def
+
+% ------------ PSPE : Page Eject on form feed, non-zero=enable/zero=disable
+/pspe {
+	/pageject exch 0 ne def
+} bind def
+
+% ------------ PSHD : Header, an array of strings
+/pshd {
+	/header exch def
+} bind def
+
+% ------------ PSFT : Footer, an array of strings
+/psft {
+	/footer exch def
+} bind def
+
+%
+% Hughs code starts here 
+%
+% Standard short abbreviations:
+
+/bd {bind def} bind def
+/ld {load def} bd
+/slw /setlinewidth ld
+/cpt /currentpoint ld
+/cph /closepath ld
+/sg  /setgray ld
+
+% Global important variables
+% (these may be changed at runtime but we need them now)
+
+/windows false def     % windows or OS/2?
+
+
+% Font section
+
+
+% Routine to duplicate fonts with a new encoding vector
+% Based on Manuscript code....
+
+/recd 10 dict def
+/pcft {
+  recd begin
+  /ncs windows {ANSI8vec} {CP850vec} ifelse def
+  /nfn exch def
+  /bfn exch def
+  /bfd bfn findfont def
+  /nf bfd maxlength dict def
+  bfd {
+    exch dup dup /FID ne exch
+    /Encoding ne and {exch nf 3 1 roll put} {pop pop} ifelse
+    } forall
+  nf/FontName nfn put
+  nf/Encoding ncs put
+  nfn nf definefont pop end
+  } bd
+
+/fs{exch /pt exch def ff pt cu scf sf}bd
+
+/setfonts {
+
+% Define the appropriate encoding vector for Postscript characters:
+% either for Windows (based on ANSI-8 character set),
+% or for Presentation Manager (based on codepage 850) (assumes!!!)
+
+  windows {
+
+  % Windows :
+  % define a new encoding vector based on ANSI character set
+
+  /ANSI8vec 256 array def
+  StandardEncoding ANSI8vec copy pop
+
+  /dotaccent/bullet/quotesingle/quotedblleft/quotedblright
+  /quotesinglbase/quotedblbase/guilsinglleft/guilsinglright/.notdef
+  /ellipsis/perthousand/.notdef/.notdef/paragraph
+  /section/dagger/daggerdbl/OE/oe
+  /fi/fl/endash/emdash/fraction
+  /Ydieresis
+  ANSI8vec 6 26 getinterval astore pop
+  /quotesingle
+  ANSI8vec 39 1 getinterval astore pop
+  /grave
+  ANSI8vec 96 1 getinterval astore pop
+  /bar
+  ANSI8vec 124 1 getinterval astore pop
+% 128
+  /.notdef/.notdef/.notdef/.notdef/.notdef
+  /.notdef/.notdef/.notdef/.notdef/.notdef
+  /.notdef/.notdef/.notdef/.notdef/.notdef
+  /.notdef/.notdef/quoteleft/quoteright/quotedblleft
+% 148
+  /quotedblright/bullet/endash/emdash/.notdef
+  /.notdef/.notdef/.notdef/.notdef/.notdef
+  /.notdef/.notdef/space/exclamdown/cent
+  /sterling/currency/yen/brokenbar/section
+% 168
+  /dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+  /hyphen/registered/macron/degree/plusminus
+  /twosuperior/threesuperior/acute/mu/paragraph
+  /periodcentered/cedilla/onesuperior/ordmasculine/guillemotright
+% 188
+  /onequarter/onehalf/threequarters/questiondown/Agrave
+  /Aacute/Acircumflex/Atilde/Adieresis/Aring
+  /AE/Ccedilla/Egrave/Eacute/Ecircumflex
+  /Edieresis/Igrave/Iacute/Icircumflex/Idieresis
+% 208
+  /Eth/Ntilde/Ograve/Oacute/Ocircumflex
+  /Otilde/Odieresis/multiply/Oslash/Ugrave
+  /Uacute/Ucircumflex/Udieresis/Yacute/Thorn
+  /germandbls/agrave/aacute/acircumflex/atilde
+% 228
+  /adieresis/aring/ae/ccedilla/egrave
+  /eacute/ecircumflex/edieresis/igrave/iacute
+  /icircumflex/idieresis/eth/ntilde/ograve
+  /oacute/ocircumflex/otilde/odieresis/divide
+% 248
+  /oslash/ugrave/uacute/ucircumflex/udieresis
+  /yacute/thorn/ydieresis
+  ANSI8vec 128 128 getinterval astore pop
+  }
+
+  {
+  % Presentation Manager:
+  % define a new encoding vector based on code page 850
+
+  /CP850vec 256 array def
+  StandardEncoding CP850vec copy pop
+
+  /dotaccent/bullet/quotesingle/quotedblleft/quotedblright
+  /quotesinglbase/quotedblbase/guilsinglleft/guilsinglright/.notdef
+  /ellipsis/perthousand/.notdef/.notdef/paragraph
+  /section/dagger/daggerdbl/OE/oe
+  /fi/fl/endash/emdash/fraction
+  /Ydieresis
+  CP850vec 6 26 getinterval astore pop
+
+  /Ccedilla/udieresis/eacute/acircumflex/adieresis
+  /agrave/aring/ccedilla/ecircumflex/edieresis
+  /egrave/idieresis/icircumflex/igrave/Adieresis
+  /Aring/Eacute/ae/AE/ocircumflex
+  /odieresis/ograve/ucircumflex/ugrave/ydieresis
+  /Odieresis/Udieresis/oslash/sterling/Oslash
+  /.notdef/florin/aacute/iacute/oacute
+  /uacute/ntilde/Ntilde/ordfeminine/ordmasculine
+  /questiondown/registered/.notdef/onehalf/onequarter
+  /exclamdown/guillemotleft/guillemotright/.notdef/.notdef
+  /.notdef/.notdef/.notdef/Aacute/Acircumflex
+  /Agrave/copyright/.notdef/.notdef/.notdef
+  /.notdef/cent/yen/.notdef/.notdef
+  /grave/.notdef/circumflex/tilde/.notdef
+  /atilde/Atilde/.notdef/.notdef/.notdef
+  /.notdef/.notdef/.notdef/.notdef/currency
+  /eth/Eth/Ecircumflex/Edieresis/Egrave
+  /dotlessi/Iacute/Icircumflex/Idieresis/.notdef
+  /.notdef/.notdef/.notdef/brokenbar/Igrave
+  /.notdef/Oacute/germandbls/Ocircumflex/Ograve
+  /otilde/Otilde/.notdef/thorn/Thorn
+  /Uacute/Ucircumflex/Ugrave/yacute/Yacute
+  /.notdef/acute/.notdef/.notdef/.notdef
+  /threequarters/paragraph/section/.notdef/cedilla
+  /ring/dieresis/periodcentered/onesuperior/threesuperior
+  /twosuperior/.notdef/.notdef
+  CP850vec 128 128 getinterval astore pop
+
+  } ifelse
+
+  %  Set up the appropriate fonts now
+
+  /Courier /CR pcft
+% /Courier-Bold /CoRB pcft
+% /Courier-Oblique /CRO pcft
+% /Courier-BoldOblique /CRBO pcft
+  /Times-Roman /TIM pcft
+% /Times-Bold /TIB pcft
+% /Times-Italic /TII pcft
+% /Times-BoldItalic /TBI pcft
+% /Helvetica /HEL pcft
+  /Helvetica-Bold /HLB pcft
+% /Helvetica-Oblique /HLO pcft
+% /Helvetica-BoldOblique /HBO pcft
+  /Sym{/Symbol fs}bd
+
+  % Initialise the ones we're using:
+
+  setscale
+
+} bd
+
+% these must only be run after setfonts
+/dlgchar  {/CR findfont ch1 scalefont setfont} bd
+/headchar {/TIM findfont ch2 scalefont setfont} bd
+/footchar {/TIM findfont ch3 scalefont setfont} bd
+
+%
+% Hughs code ends here 
+%
+
+
+%	============	Local Routines	============
+
+% ------------ InsertPage
+/insertpage {
+	dup (#) search
+	{
+		pop pop pop					% remove the results of successful search
+		/buf 100 string def		% make a clean buffer area
+		/bi 0 def					% indexer into buf
+		{
+			dup 35 eq					% is it the '#' character?
+			{
+				pagenum
+				6 string
+				cvs
+				dup length					% number of chars in pagenum string
+				buf bi 4 -1 roll			% set up for putinterval
+				putinterval
+				bi add /bi exch def		% advance bi over pagenum string
+			}
+			{
+				buf bi					% just copy the char to buf
+				3 -1 roll
+				put
+				/bi bi 1 add def		% advance the index
+			}
+			ifelse
+		}
+		forall
+		buf (\000) search			% find the terminating null
+		pop							% throw away boolean result
+		exch pop						% throw away match substring
+		exch pop						% throw away post substring
+	}
+	{
+		pop					% remove the duplicate string
+	}
+	ifelse
+} bind def
+
+% ------------ LeftText
+/lefttext {
+	pageleft exch moveto
+	show
+} bind def
+
+% ------------ CenterText
+/centertext {
+	pageleft
+	pagewidth 2 div
+	add
+	2 index
+	stringwidth pop 2 div
+	sub
+	exch moveto
+	show
+} bind def
+
+% ------------ RightText
+/righttext {
+	pageright
+	2 index
+	stringwidth pop
+	sub
+	exch moveto
+	show
+} bind def
+
+% ------------ DoHeader
+/doheader {
+	gsave
+		newpath
+		pageleft pagetop headerheight sub moveto
+		pageright pagetop headerheight sub lineto
+		stroke
+		hffont setfont
+		/hfrow 1 def
+		/hfpos 0 def
+		header
+		{
+			insertpage
+			pagetop hfpoints hfrow mul sub
+			hfpos 0 eq {lefttext} if
+			hfpos 1 eq {centertext} if
+			hfpos 2 eq {righttext} if
+			hfpos 2 ge
+				{/hfpos 0 def /hfrow hfrow 1 add def}
+				{/hfpos hfpos 1 add def}
+				ifelse
+		} forall
+	grestore
+} bind def
+
+% ------------ DoFooter
+/dofooter {
+	gsave
+		newpath
+		pageleft pagebottom footerheight add moveto
+		pageright pagebottom footerheight add lineto
+		stroke
+		hffont setfont
+		/hfrow 1 def
+		/hfpos 0 def
+		footer
+		{
+			insertpage
+			pagebottom footerheight add hfpoints hfrow mul sub
+			hfpos 0 eq {lefttext} if
+			hfpos 1 eq {centertext} if
+			hfpos 2 eq {righttext} if
+			hfpos 2 ge
+				{/hfpos 0 def /hfrow hfrow 1 add def}
+				{/hfpos hfpos 1 add def}
+				ifelse
+		} forall
+	grestore
+} bind def
+
+% ------------ StartFrame
+/startframe {
+		grestore
+	/frameleft currentframe 1 sub framewidth mul pageleft add def
+	/framevert frameleft 5 add def
+	numbering
+	{
+		/framevert frameleft linumwidth 5 add add def
+	} if
+	/frametop pagetop headerheight sub def
+	/framebottom pagebottom footerheight add def
+	currentframe 1 gt
+	{
+		newpath
+		frameleft frametop moveto
+		frameleft framebottom lineto
+		stroke
+	} if
+	gsave newpath
+		frameleft framebottom moveto
+		frameleft frametop lineto
+		frameleft framewidth add frametop lineto
+		frameleft framewidth add framebottom lineto
+		closepath
+		clip
+		textfont setfont
+		framevert frametop linesize sub moveto
+} bind def
+
+% ------------ FirstFrame
+/firstframe {
+	/currentframe 1 def
+	startframe
+} bind def
+
+% ------------ NextFrame
+/nextframe {
+	/currentframe currentframe 1 add def
+
+	currentframe columns gt
+	{
+			grestore
+		showpage
+		nextpage
+	}
+	{
+		startframe
+	}
+	ifelse
+} bind def
+
+% ------------ StartPage
+/startpage {
+	orientation 0 eq
+	{	% --- Portrait
+	}
+	{	% --- Landscape
+		90 rotate
+		0 -612 translate
+	}
+	ifelse
+	header length 0 ne {doheader} if
+	footer length 0 ne {dofooter} if
+	gsave
+	firstframe
+} bind def
+
+% ------------ FirstPage
+/firstpage {
+	orientation 0 eq
+	{	%  Portrait
+		/pageleft marginleft def
+		/pageright 612 marginright sub def
+		/pagetop 792 margintop sub def
+		/pagebottom marginbottom def
+	}
+	{	% Landscape
+		/pageleft marginleft def
+		/pageright 792 marginright sub def
+		/pagetop 612 margintop sub def
+		/pagebottom marginbottom def
+	}
+	ifelse
+
+	/pagewidth pageright pageleft sub def
+	/framewidth pagewidth columns div def
+
+	/textfont /CR findfont charsize scalefont def
+	textfont setfont
+	/linesize charsize def
+	/tabdist (0123456789) stringwidth pop 10 div tabsize mul def
+
+	/linumfont /CR findfont charsize scalefont def
+	linumfont setfont
+	/linumwidth (00000) stringwidth pop def
+
+	/headerheight header length 2 add 3 idiv hfpoints mul 6 add def
+	/footerheight footer length 2 add 3 idiv hfpoints mul def
+
+	startpage
+} def
+
+% ------------ NextPage
+/nextpage {
+	/pagenum pagenum 1 add def
+	startpage
+} bind def
+
+% ============ Text File Commands ============
+
+% ------------ BF : Begin File
+/bf {
+	/pagenum 1 def
+	/linenum 1 def
+	firstpage
+} def
+
+% ------------ EF : End File
+/ef {
+	showpage
+} bind def
+
+% ------------ TA : Tab
+/ta {
+	currentpoint exch
+	framevert {dup 1 sub 2 index gt {exit} if tabdist add} loop
+	exch pop exch moveto
+} def
+
+% ------------ LF : Line Feed
+/lf {
+	numbering
+	{
+		% save current point and font
+		currentpoint
+		currentfont
+
+		linumfont setfont
+		/str 7 string def
+		linenum str cvs dup stringwidth pop
+		neg framevert add 5 sub currentpoint exch pop moveto
+		show
+
+		% restore current point and font
+		setfont
+		moveto
+
+	} if
+	0 linesize neg rmoveto
+	currentpoint exch pop framebottom 2 add le {nextframe} if
+	/linenum linenum 1 add def
+} bind def
+
+% ------------ CR : Carrage Return
+/cr {
+	currentpoint exch pop framevert exch moveto
+} bind def
+
+% ------------ TX : Text
+/tx {
+	show
+} bind def
+
+% ------------ CODE : process some other character code
+/code {
+	/codechar exch def
+	/codeshow true def
+	codechar 12 eq {pageject {/codeshow false def nextframe} if} if
+	codeshow {(\250) show} if
+} def
+
+%	+===============================================+
+%	| The program will append the file's settings	|
+%	| and the `packaged' file after this header.	|
+%	+===============================================+
+8 psts
+9 pscs
+0 psnl
+1 pspe
+0 psor
+1 psco
+ 0.500 psmt
+ 0.750 psml
+ 0.500 psmr
+ 0.500 psmb
+setfonts
+
+
