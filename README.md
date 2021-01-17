@@ -13,3 +13,14 @@ If you want to play with the source code, put [dosbox.app](https://www.dosbox.co
     npm run build:  creates a rubik.zip file in the public folder.
     npm run dosbox: opens dosbox with Borland C and Norton Commander installed.
 ```
+
+To build the app:
+```
+- start the IDE with "BC" in c:\
+- open RUBIK.PRJ
+- build with F9
+``` 
+
+You need to exit the IDE and run the .exe from the BIN directory.
+
+Copyright I know I know I know... but how on Earth am I supposed to find the Borland compiler 10 years from now, also Norton Commander?
