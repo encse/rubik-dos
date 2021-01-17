@@ -13,25 +13,25 @@ If you want to play with the source code, put [dosbox.app](https://www.dosbox.co
 
 ```
 - npm run build:     creates a rubik.zip file in the public folder.
-- npm run dosbox:    opens dosbox with Borland C and Norton Commander installed.
+- npm run dosbox:    opens Dosbox with Borland C++ and Norton Commander installed.
 ```
 
 To build rubik.exe:
 ```
-- start dosbox
-- start the IDE with "BC" in c:\
-- open RUBIK.PRJ
+- start Dosbox
+- start the IDE with "BC" in C:\
+- open C:\RUBIK\RUBIK.PRJ
 - build with F9
 ``` 
 
 You need to exit the IDE and run the .exe from the BIN directory.
 
-**Whatever** is in the src directory , it doesn't reflect the author's 
+**Whatever** is in the src directory, it doesn't reflect the author's 
 view of professional software development. It's more like a
-junior's desperate effort of creating something moderately complicated.
+junior's desperate effort to create something moderately complicated.
 
 Hey, all of us had to start somewhere...
 
 **Copyright** I know that I shouldn't... but the whole devenv is checked in
-next to the source code. How on Earth am I supposed to find the Borland C++ compiler 10 years from now,
+with the source code. Afterall: how on Earth am I supposed to find the Borland C++ compiler 10 years from now,
  and the same for Norton Commander...
