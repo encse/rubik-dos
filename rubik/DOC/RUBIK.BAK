@@ -1,0 +1,104 @@
+--- FIlE: Dokument ci¢ a Rubik3.exe-hez
+--- BOF ---
+HI!
+
+  Nos h t v‚gre eljutottam addig a pontig, hogy m r csak valami inform ci¢t
+kell  ¡rnom  agyatlans gom  eme  megnyilv nul s hoz. Ugyan foggalmam sincs,
+hogy  mir‹l  fog sz¢lni a dokument ci¢. Tegnap este azon gondolkodtam, hogy
+egy  bizonyos  l ny  iszonyatosan  a b”gy”mbe van, £gyhogy...
+
+  Na j¢, de akkor  viszont mi marad? Egy  j¢tan cs: n lam ugyan fut Win '95
+alatt is a progi  de  pl. a B¢lyai koleszban m r nem, teh t ne csod lkozzon
+senki,  aki azt  a ...-t haszn lja,  ha  lefagy t‹le a g‚pe. Screen shot-ot
+pedig  m‚g nekem  se sikerlt haszn lnom vele, mert valami x. v‚delmi hib t
+okozott, teh t azt kl”n”sen nem aj nlom.
+
+  Hogy mit is tud a program? Elm‚letileg nagyon keveset, k‚t j¢l megtermett
+perspekt¡vikusan   br zolt, megvil g¡tott Rubik-kock t hajtogat ”ssze-visz-
+sza.  Ez a k‚t kocka tulajdonk‚ppen ugyanannak a kock nak k‚t kl”nb”z‹ n‚-
+zete (hogy egyszerre lehessen l tni mind a hat oldal t).
+
+  A  "kirak si algoritmus" az egyetlen  ltalam ismert algoritmus seg¡ts‚g‚-
+vel  szletett  (gyk. soronk‚nt fellr‹l lefel‚). Az els‹ sorn l ez egy (i-
+szonytat¢an nagyk‚pûen) optimaliz l snak nevezett m¢don le is egyszerûs¡t‹-
+dik, a t”bbin‚l az‚rt nem, mert akkor m‚g ‚n se l tn m, hogy mikor mit csi-
+n l.  (Megj.:  a "teljesen optimaliz lt" v ltozat megtekinthet‹ a -fo opci¢
+haszn lat val.)  Az  optimaliz l s l‚nyege az, hogy a felesleges oda-vissza
+forgat sokat,  az  ugyanannak  az  oldalnak h romszori ugyanabba az ir nyba
+t”rt‚n‹  elford¡t s t  ‚s az eg‚sz kocka elforgat s t megfelel‹en m¢dos¡tsa
+(az  els‹t  ‚s  az utols¢ elhagyja, a m sodikat felcser‚li egy ellenkez‹ i-
+r nyba  ford¡t ssal). Erre az‚rt van szks‚g, mert az algoritmus kb. 35%-ra
+zsugorodott  az ltal,  hogy  a  legt”bb  esetet csak a szemben lev‹ oldalra
+vizsg ltam, ‚s ha mondjuk a jobb oldalon kellett ugyanilyen vizsg latot v‚-
+gezni,  egyszerûen csak elford¡tottam a kock t a fgg‹leges tengely ment‚n.
+Tov bb   az egyes  eseteket  csak nagyon k”r”lm‚nyesen lehetett egym s ut n
+illeszteni, ¡gy pl. az els‹ sorn l irt¢ unalmas oldal oda-vissza forgat sok
+voltak teljesen feleslegesen.
+
+  K‚t  olyan  llapot van, ahol a kock t a kurzorvez‚rl‹ billentyûkkel lehet
+forgatni,  az ”sszekever‚s ‚s a kirak s ut n. A z tengelyen (amelyik norm -
+lis  a  k‚perny‹ s¡kj ra) £gy lehet forgatni, hogy a Ctrl-re is r  kell ke-
+nyerelni,  azt n  <-  -> (ez a bal oldali kock ra vonatozik, megjegyzem azt
+c‚lszerû  n‚zni  mik”zben forgatjuk, mert a m sikon igen term‚szetellenesen
+j”nnek ki az ir nyok).
+
+  M‚g  egy  iszony£ bonyolult billentyûkombin ci¢t kell megjegyezni a szak-
+szerû  mûk”dtet‚shez  (ugyeb r  az ESC-et lesz m¡tva): az ”sszekavar s ut n
+(meg a k‚zi forgat s ut n) egy Entert kell taccsolni.
+  R ad s: a vil g¡t s kikapcsolhat¢ a -loff opci¢val.
+
+  A  program r”vid t”rt‚nete: tavaly tavasszal ¡rtam az els‹ verzi¢t kb egy
+h‚t  leforg sa  alatt,  ennek egyenes gi k”vetkezm‚nye egy t”rt‚nelem egyes
+volt, ami azt n el‚g sok kellemetlens‚get okozott a f‚l‚v tov bbi r‚sz‚ben,
+tov bb  egy matek n‚gyes is, m‚gpediglen koordin ta-geometri b¢l. (Ez ut¢b-
+biban  csak az a bosszant¢, hogy a T¢th Szilvi soha nem fogja meg¡rni ezt a
+programot, pedig neki 5-”s lett az a doga.) Teh t az 1.0 verzi¢ban egy koc-
+ka volt, naggyon rosszul n‚zett ki, sokkal lassabban forgott, nem volt meg-
+vil g¡tva,  ‚s kisebb volt a k‚perny‹ felbont s is, meg a sz¡nm‚lys‚g (vagy
+mi  a f.sz)  is. Ezen k¡vl nem volt benne optimaliz l s, ‚s sokszor jutott
+v‚gtelen  ciklusba.  V‚gl m‚g ¡gy is sokkal nagyobb volt, ‚s ”sszess‚g‚ben
+nagyon but n, ‚s m¢dos¡thatatlanul volt meg¡rva.
+
+  Hogy  mi‚rt  nem  teszem ide a forr sk¢dot? Mert aki ezt meg‚rten‚, annak
+val¢sz¡nûleg nem tartana t£l sok ig valamivel jobbra megcsin lni, teh t ne-
+ki nem sok ‚rtelme van iderakni. Aki meg nem l tja  t annak semmi kedvem ¢-
+r kig  azt fejtegetni, hogy mit mi‚rt csin ltam. Viszont ha valaki megmond-
+ja,  hogy  mi az a n‚gy dolog, amit lusta voltam belerakni az algoritmusba,
+annak elkld”m, ‚s beleteheti mindenf‚le jogd¡j befizet‚se n‚lkl.
+
+  M r  csak  a  menteget‹z‚s van h tra az esetleges hib k‚rt. Aki net n fel
+van  h borodva  ezek  miatt  annak  aj nlom,  hogy  t”m”r¡tse  ki az .exe-t
+(PKLITE),  azt n  egy  editorral n‚zze meg a v‚g‚t, ahol a stringkonstansok
+vannak.  Ott val¢sz¡nûleg meg fogja tal lni azt az oldalnyi y6+x1-z2+...-t,
+amit elsz£rtam valahol. Sajn lom.
+
+  B r  rem‚lem  nem t£l sok hiba van benne, egyik d‚lel‹tt sz‚pen egyes‚vel
+v‚gign‚ztem az eg‚szet.
+
+  Ha esetleg valaki azt tapasztaln , hogy a program kil‚p miel‹tt befejezte
+volna  a kirak st, az rem‚nyeim szerint egy v‚gtelen ciklusba kevered‚s mi-
+att lesz (vagy csak a m‚lyen tisztelt felhaszn l¢ t£l hamar tenyerelt r  az
+ESC  gombra?)  B r  ezt  majd csak holnap - pontosabban ma d‚lel‹tt - fogom
+belerakni,  rem‚lem sikerl. Az elj r s azon a hihetetlenl primit¡v ‚szre-
+v‚telen  alapul,  hogy  a kocka kirak s hoz szks‚ges forgat soknak van egy
+maximuma,  amennyib‹l minden  llapotot ki lehet rakni. Ezt j¢ durv n fell-
+becslem,  azt n  m r csak azt kell figyelni, hogy mikor l‚pte t£l a progi a
+hat rt.  A kil‚p‚s egy kl”n”sen informat¡v hibazenettel lesz indokolva, a
+v‚g‚n tal lhat¢ sz mot nekem elkld‹k k”z”tt sok ‚rt‚ktelen semmis‚get sor-
+solok ki.
+
+  Picit  lmos  vagyok,  de  m‚g maghallgatom a Cserh ti Zsuzsit a r di¢ban,
+addig is a vil g egyik legritk bban l togatott szeglete ( ltalam is):
+
+	NCS@valerie.inf.elte.hu.
+
+NA asszem k b‚ ennyit ‚remes elmondani, a t”bbi m r nagyon sz raz lenne...
+BYE.
+
+U.I.:
+ šdv”zlet Berki Luk csnak, Bal zs Tibornak, Somogyi Eszternek, Hekli Szabi-
+ n nak, Tisza Gerg‹nek, Megyesi Gerg‹nek, meg az ”sszes olyan ismer‹s”mnek,
+ aki sz¢ba is  ll velem.
+
+ NCS
+								  -- EOF --

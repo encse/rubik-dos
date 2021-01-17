@@ -1,0 +1,20 @@
+{
+  "name": "rubik-dos",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "zip": "zip -r -X public/rubik rubik",
+    "build": "npm run zip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/encse/rubik-dos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/encse/rubik-dos/issues"
+  },
+  "homepage": "https://github.com/encse/rubik-dos#readme",
+  "devDependencies": {}
+}

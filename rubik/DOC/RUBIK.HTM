@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1250">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Imádok dokumentációkat készíteni az elkészült programjaimhoz.</title>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p align="left"><img src="rubik.gif" width="572" height="232"></p>
+
+<p><font size="4" face="Arial CE">Most új! A mesterséges
+inteligencia erejével! Lásd a változásokat a dokumentáció
+végén!</font></p>
+
+<p><font size="4" face="Arial CE"><strong>A programról:</strong></font>
+<br>
+<font size="3" face="Arial CE">Szerettem volna egy olyan
+programot írni, ami ki tudja rakni a Rubik-kockát. Néhány
+korábbi verzió már napvilágot látott 2-3 évvel ezelõtt,
+azóta javítottam az algoritmuson, így most véletlenül sem
+forgat oda-vissza egy oldalt, illetve nem nagyon forgatja el az
+egész kockát, ezenkívül az elsõ verzióhoz képest jelenleg
+két kocka forog egyszerre a képernyõn. Továbbá a
+vizsgaidõszak végének örvendve most a kockák távolsága is
+beállíthatóvá vált, illetve egérrel és a kurzorbillentyûk
+segítségével forgatni is lehet az oldalakat (az eddigi
+verziókban a felhasználó csak nézni tudta a kockát, mert a
+rétegeket nem lehetett elforgatni, azonban az egér
+bevezetésével viszonylag normális módon tudtam megoldani a
+forgatni kívánt oldalak kijelölését - ez persze még így is
+elég bonyolult, mert az egér két dimenziós objektumokra lett
+kitalálva, a kocka meg ugyebár három). Végül a legutolsó
+újítás, hogy az 'p' billentyû leütésével a képernyõ
+aktuális állapota elmenthetõ.</font></p>
+
+<p><font size="4" face="Arial CE"><strong>Kezelés:</strong></font>
+<br>
+<font size="3" face="Arial CE">Az egész kocka kétféleképpen
+forgatható el: a kurzorvezérlõ billentyûk segítségével: ez
+egyelõre a bal oldali kocka esetében mûködik logikusan, és
+csak a képernyõre merõleges tengely menti forgatás szorul
+magyarázatra: ctrl + bal, ill. ctrl + jobb. Illetve egérrel:
+kattintsunkl valamelyik lapon, majd a gomb nyomvatartása mellett
+mozgassuk át a kurzort egy másik lapra. <br>
+<br>
+Az egér segítségével a <i>rétegeket</i> is forgathatjuk, a
+módszer annyiban különbözik a fentitõl, hogy a kurzort ne
+mozgassuk át másik lapra, hanem egy szomszédos négyzetre
+mozgatva jelölhetjük ki, hogy mit hogyan szeretnénk forgatni.
+A k billentyûvel kicsit <i>megkeverhetjük</i> a kockát. Az
+Enter billentyûvel a gép <i>automatikusan kirakja</i> a kockát
+(az általam ismert legegyszerûbb felülrõl-lefelé
+taktikával) Megj.: nem vizsgálja meg, hogy van-e már kirakott
+oldal, a bal oldali kocka tetejétõl kezd el dolgozni. (Béta
+verzió !!!) Az ESC billentyûvel léphetünk ki a programból. A
++ és - gombokkal az aktuális kocka távolsága állítható be,
+az aktuális kocka a tab billentyûvel választható ki.<br>
+<br>
+Minták kirakása: indítás rubik -play &lt;mintafile&gt; <br>
+Rakjuk ki a Rubik-kockád: rubik -my (még nem igazán mûködik)<br>
+</font></p>
+
+<p><font size="4" face="Arial CE"><strong>Új a 3.1-es verzióban<br>
+</strong></font><font size="3" face="Arial CE">A mesterséges
+inteligencia tárgy keretében (is) tanultunk a visszalépéses
+keresésrõl. Az e tárggyal kapcsolatos beadandók egyike a
+kocka 3.1-es verziója, amibe ezt az alguritmust építettem be.
+Alapértelmezésként 6-os mélységû visszalépéses keresést
+alkalmaz (ez az ajánlott maximum), 3-féle heurisztikával arra
+vonatkozóan, hogy milyen útvonalat ne használjon (aki hallotta
+már a w, vagy a p heurisztikát: errõl van szó). Parancssori
+argumentumként adható meg a keresés mélysége ('-mi
+mélység', de lásd a -h/-? -es helpet). 6-os mélység mellett
+nálam a Celeron 333-ason átlagosan asszem kb 6,87 másodperc
+körül találja meg a helyes utat (100 adatból vont átlag).<br>
+További újítás: az 'm' billentyûvel a kocka aktuális
+állapota elmenthetõ a rubik.dat fájlba, innen az 'l'-lel lehet
+visszatölteni (csak hogy véletlenül se keverjük a nyelveket).
+Az eddigi 'm' - képernyõ mentése - most a 'p'-vel érhtõ el. </font></p>
+
+<p><font size="4" face="Arial CE"><strong>Várható folytatás:</strong></font>
+<br>
+<font size="3" face="Arial CE">Jobb algoritmus, szebb
+kivitelezés, diplomázás, kívülrõl programozható vezérlés
+(már alakul a szintaktikus elemzõje), tankönyv, Windows
+környezet DirectX-szel... A lehetõségek száma végtelen,
+ötleteket szívesen fogadok, és törlök le olvasás nélkül a
+következõ E-mail címrõl:<br>
+</font></p>
+
+<p><a href="mailto://ncs@valerie.inf.elte.hu"><font size="3"
+face="Arial CE">NCS@inf.elte.hu</font></a><font size="3"
+face="Arial CE"> 2001. március 4.</font></p>
+</body>
+</html>

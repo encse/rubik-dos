@@ -1,0 +1,1 @@
+char gyorsforgatas(char *buf);
