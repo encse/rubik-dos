@@ -2,7 +2,8 @@ The Rubik's cube was one of my favorite toys as a child, and writing an animated
 
 ![screenshot](screenshot.png)
 
-The code was written in Borland C++ (mostly C) using an old 5x86 machine. I found the archives of this project in 2021 and made it available in DOSBox. 
+The code was written in Borland C++ (mostly C) using an old 5x86 machine. 
+I found the archives in 2021 and made it available in DOSBox. 
 
 Check it out at https://csokavar.hu/projects/rubik
 
