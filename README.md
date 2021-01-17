@@ -1,11 +1,12 @@
-The Rubik's cube was one of my favorite toys as a child, and writing an animated 3D cube was my dream project at the age of 18. This repo shows the result of that effort.
+The Rubik's cube was one of my favorite toys as a child, and writing an animated 3D cube was my dream project at the age of 18. 
+
+This repo shows the result of that effort.
 
 ![screenshot](screenshot.png)
 
 The code was written in Borland C++ (mostly C) using an old 5x86 machine. 
-I found the archives in 2021 and made it available in DOSBox. 
 
-Check it out at https://csokavar.hu/projects/rubik
+I found the archives in 2021 and made it available in DOSBox. Check it out at https://csokavar.hu/projects/rubik
 
 # Developing, building, playing around
 
