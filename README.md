@@ -8,7 +8,7 @@ Online demo [here](https://csokavar.hu/projects/rubik).
 
 The code was written in Borland C++ (mostly C) using an old 5x86 machine. 
 
-I found the archives in 2021 and made it available in DOSBox. Check it out at https://csokavar.hu/projects/rubik
+I found the archives in 2021 and made it available in DOSBox. 
 
 # Developing, building, playing around
 
