@@ -4,7 +4,7 @@ This repo shows the result of that effort.
 
 ![screenshot](screenshot.png)
 
-Online demo [here](https://csokavar.hu/projects/rubik).
+Online demo [here](https://rubik.csokavar.hu/).
 
 The code was written in Borland C++ (mostly C) using an old 5x86 machine. 
 
